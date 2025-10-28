@@ -17,7 +17,7 @@ This project is a straightforward password generator built with HTML, CSS, and J
 ## Usage
 
 1. Open `index.html` in your web browser.
-2. Enter the desired password length in the input field (minimum 15 characters).
+2. Enter the desired password length in the input field (minimum 12 characters).
 3. Click the "Generate passwords" button.
 4. Two random passwords will be displayed.
 5. Click on either password to copy it to your clipboard.
