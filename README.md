@@ -9,7 +9,7 @@ This project is a straightforward password generator built with HTML, CSS, and J
 ## Features
 
 - Generate two random passwords simultaneously
-- Customizable password length (minimum 15 characters)
+- Customizable password length (minimum 12 characters)
 - Click-to-copy functionality for easy password selection
 - Responsive design with a dark theme
 - Includes a wide range of characters: letters (upper and lower case), numbers, and special symbols
