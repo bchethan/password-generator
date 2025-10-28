@@ -6,21 +6,27 @@ const chars = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
                 "+", "=", "{", "}", "[", "]", "\\", "\"", "'", ":", ";", ".",",", 
                 "/", "?", ">", "<", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "|"];
 
-let password1 = document.getElementById("password1");
-let password2 = document.getElementById("password2");
+let passwordEl = document.getElementById("passwords-el")
 let passwordLength = document.getElementById("password-length")
 
 function generatePassword(){
-    password1.textContent = "";
-    password2.textContent = "";
+    passwordEl.innerHTML = `
+            <p id="password1" onclick="copyOnClick1()" class="password"></p>
+            <p id="password2" onclick="copyOnClick2()" class="password"></p>
+        `;
+        
+    let password1 = document.getElementById("password1");
+    let password2 = document.getElementById("password2");
+    password1.innerHTML = "";
+    password2.innerHTML = "";
 
     passwordLength.value = passwordLength.value>15? passwordLength.value : 15
 
     for (let i = 0; i < passwordLength.value; i++){
         let randomIndex1 = Math.floor(Math.random()*chars.length);
         let randomIndex2 = Math.floor(Math.random()*chars.length)
-        password1.textContent += chars[randomIndex1];
-        password2.textContent += chars[randomIndex2];
+        password1.innerHTML += chars[randomIndex1];
+        password2.innerHTML += chars[randomIndex2];
     }
     passwordLength.value = ""
 }
