@@ -1,40 +1,43 @@
 const chars = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
-                "N", "O", "P", "Q", "U", "R", "S", "T", "U","V", "Y", "X", "Y", 
+                "N", "O", "P", "Q", "R", "S", "T", "U","V",  "W", "X", "Y", 
                 "Z", "a", "b", "c", "d", "e", "f","g", "h", "i", "j", "k", "l", 
                 "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", 
                 "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "_", "-", 
                 "+", "=", "{", "}", "[", "]", "\\", "\"", "'", ":", ";", ".",",", 
                 "/", "?", ">", "<", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "|"];
 
-let passwordEl = document.getElementById("passwords-el")
-let passwordLength = document.getElementById("password-length")
+const passwordEl = document.querySelector("#passwords-el")
+let passwordLength = document.querySelector("#password-length")
 
 function generatePassword(){
     passwordEl.innerHTML = `
-            <p id="password1" onclick="copyOnClick1()" class="password"></p>
-            <p id="password2" onclick="copyOnClick2()" class="password"></p>
+            <p id="password1-el" class="password"></p>
+            <p id="password2-el" class="password"></p>
         `;
         
-    let password1 = document.getElementById("password1");
-    let password2 = document.getElementById("password2");
-    password1.innerHTML = "";
-    password2.innerHTML = "";
+    const password1El = document.querySelector("#password1-el");
+    const password2El = document.querySelector("#password2-el");
 
-    passwordLength.value = passwordLength.value>15? passwordLength.value : 15
+    password1El.addEventListener("click", ()=>copyOnClick(password1El))
+    password2El.addEventListener("click", ()=>copyOnClick(password2El))
 
-    for (let i = 0; i < passwordLength.value; i++){
+    let passwordItem1 = "";
+    let passwordItem2 = "";
+
+    const length = Math.max(passwordLength.value,15)
+
+    for (let i = 0; i < length; i++){
         let randomIndex1 = Math.floor(Math.random()*chars.length);
         let randomIndex2 = Math.floor(Math.random()*chars.length)
-        password1.innerHTML += chars[randomIndex1];
-        password2.innerHTML += chars[randomIndex2];
+        passwordItem1 += chars[randomIndex1];
+        passwordItem2 += chars[randomIndex2];
     }
+    password1El.innerHTML = passwordItem1;
+    password2El.innerHTML = passwordItem2;
     passwordLength.value = ""
 }
 
-function copyOnClick1(){
-    navigator.clipboard.writeText(password1.textContent);
-}
-
-function copyOnClick2(){
-    navigator.clipboard.writeText(password2.textContent);
+function copyOnClick(password){
+    console.log("Copied to clipboard "+ password.textContent)
+    navigator.clipboard.writeText(password.textContent);
 }

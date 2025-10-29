@@ -8,7 +8,7 @@ body{
 .green-text{
     color: rgba(47, 255, 120, 0.762);
 }
-button{
+#generate-btn{
     background-color:  rgba(47, 255, 120, 0.762);
     color: inherit;
     font-size: 1rem;

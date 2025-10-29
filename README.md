@@ -9,7 +9,7 @@ This project is a straightforward password generator built with HTML, CSS, and J
 ## Features
 
 - Generate two random passwords simultaneously
-- Customizable password length (minimum 12 characters)
+- Customizable password length (minimum 15 characters)
 - Click-to-copy functionality for easy password selection
 - Responsive design with a dark theme
 - Includes a wide range of characters: letters (upper and lower case), numbers, and special symbols
@@ -17,7 +17,7 @@ This project is a straightforward password generator built with HTML, CSS, and J
 ## Usage
 
 1. Open `index.html` in your web browser.
-2. Enter the desired password length in the input field (minimum 12 characters).
+2. Enter the desired password length in the input field (minimum 15 characters).
 3. Click the "Generate passwords" button.
 4. Two random passwords will be displayed.
 5. Click on either password to copy it to your clipboard.
