@@ -50,7 +50,6 @@ function copyOnClick(password){
 
 function storePasswords(password){
     let prevHistory = JSON.parse(localStorage.getItem("saved-passwords"));
-    console.log(newPasswords)
     if(prevHistory){
         newPasswords = prevHistory;
         newPasswords.push(password);

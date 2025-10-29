@@ -5,10 +5,12 @@ function renderPasswords(){
     const x = JSON.parse(localStorage.getItem("saved-passwords")) || []
     let passwordContent = ``
     if (x && x.length > 0) {
-      for (let i = 0; i < Number(x.length); i++) {
-        passwordContent += `<li>${x[i]}</li>`;
-      }
-      passwordsList.innerHTML = passwordContent;
+        x.forEach(pass => {
+            const li = document.createElement('li');
+            li.textContent = pass;
+            li.addEventListener("click",()=>copyOnClick(pass))
+            passwordsList.appendChild(li)
+        });
     } else {
       passwordsList.innerHTML = `<li>No saved passwords</li>`;
     }
@@ -19,3 +21,7 @@ clearHistory.addEventListener("click",()=>{
     localStorage.clear()
     renderPasswords()
 })
+
+function copyOnClick(password){
+    navigator.clipboard.writeText(password);
+}
